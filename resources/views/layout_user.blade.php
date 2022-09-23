@@ -62,11 +62,11 @@
                     <span>Noeuds</span>
                 </a>
                 <ul>
-                    <li><a class="active" href="">Liste des Noeuds</a></li>
-                    <li><a href="">Ajouter un Noeuds</a></li>
+                    <li><a class="active" href="/node_user">Liste des Noeuds</a></li>
+
                 </ul>
             </li>
-            <li class="">
+            {{-- <li class="">
                 <a class="has-arrow" href="#" aria-expanded="false">
                     <div class="icon_menu">
                         <img src="img/menu-icon/2.svg" alt="">
@@ -74,8 +74,7 @@
                     <span>Ressources</span>
                 </a>
                 <ul>
-                    <li><a href="editor.html">Ajouter une ressource</a></li>
-                    <li><a href="mail_box.html">Liste des ressouces</a></li>
+                    <li><a href="/ressources">Liste des ressouces</a></li> --}}
                     
                 </ul>
             

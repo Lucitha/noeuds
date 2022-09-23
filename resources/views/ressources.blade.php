@@ -31,10 +31,10 @@
                         </div>  
                     </div>
                     <div class="col-12">
-                        <label >Information</label>
-                        <textarea name="information" id="information"><?= $info !='' ? $info->information : '' ; ?></textarea>
-                        </div>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                        <label class="form-label"  for="information" >Information</label>
+                        <textarea name="information"  class="form-control"  id="information"><?= $info !='' ? $info->information : '' ; ?></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-3 mt-3">Save</button>
                 </form>
             </div>
         </div>
@@ -59,8 +59,7 @@
                             <td class="f_s_14 f_w_400 color_text_3">{{$ressource->informations}}</td>
                             <td class="f_s_14 f_w_400 text-end">
                                 <a href="/ressources/{{$ressource->id}}" class="badge_btn_1"><i class="ti-pencil"></i></a>
-                                <a href="/deleteRessource/{{$ressource->id}}" class="badge_btn_1"><i class="ti-trash"></i></a> 
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editRessources">ii</button>
+                                <a href="/deleteRessource/{{$ressource->id}}" onclick="return confirm('Supprimer cette ressource ?');   S" class="badge_btn_1"><i class="ti-trash"></i></a> 
                             </td>
                         </tr>
                     @endforeach 
@@ -68,24 +67,7 @@
             </table>
         </div>
     </div>
-    <div class="modal fade" id="editRessources" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. A sed esse voluptates, minima neque asperiores, fuga, explicabo amet repudiandae odio et architecto nihil quibusdam blanditiis eos similique. Quisquam laboriosam modi eos tempore, dicta odit animi delectus provident consequatur suscipit quae! Accusantium tempore magni ab reprehenderit at reiciendis impedit sequi illo. </p>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
+    
 </div>
 
 

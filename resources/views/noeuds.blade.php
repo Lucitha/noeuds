@@ -31,10 +31,10 @@
                         </div>  
                     </div>
                     <div class="col-12">
-                        <label >description</label>
-                        <textarea name="description" id="description"></textarea>
-                        </div>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                        <label class="form-label" for="description" >Description</label>
+                        <textarea class="form-control" name="description" id="description"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-3 mt-3">Save</button>
                 </form>
             </div>
         </div>

@@ -46,7 +46,7 @@ class CommentController extends Controller
         $update=Comments::where('id',[$id])->first();
 
             $update->content= $request->content;
-            $update->details=$request->details;
+            // $update->details=$request->details;
             $update->save();
         return back();
     }

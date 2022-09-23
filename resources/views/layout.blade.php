@@ -62,8 +62,8 @@
                     <span>Noeuds</span>
                 </a>
                 <ul>
-                    <li><a class="active" href="">Liste des Noeuds</a></li>
-                    <li><a href="">Ajouter un Noeuds</a></li>
+                    <li><a class="active" href="/nodes">Liste des Noeuds</a></li>
+                    
                 </ul>
             </li>
             <li class="">
@@ -74,8 +74,7 @@
                     <span>Ressources</span>
                 </a>
                 <ul>
-                    <li><a href="editor.html">Ajouter une ressource</a></li>
-                    <li><a href="mail_box.html">Liste des ressouces</a></li>
+                    <li><a href="/ressources">Liste des ressouces</a></li>
                     
                 </ul>
             
@@ -336,10 +335,11 @@
     </div>
 
     <script src="{{asset('js/jquery1-3.4.1.min.js')}}"></script>
-
+<!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script src="{{asset('js/popper1.min.js')}}"></script>
 
-    <script src="{{asset('js/bootstrap.min.html')}}"></script>
+    <script src="{{asset('js/bootstrap.min')}}"></script>
 
     <script src="{{asset('js/metisMenu.js')}}"></script>
 

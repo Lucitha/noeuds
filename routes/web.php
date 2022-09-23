@@ -38,7 +38,7 @@ Route::post('/updateNode/{id}', [NodesController::class,'updateNode']);
 Route::get('/nodes', [NodesController::class,'showNode']);
 Route::get('/deleteNode/{id}', [NodesController::class,'deleteNode']);
 Route::get('/editNode/{id}', [NodesController::class,'editNode']);
-Route::get('/Nodes', [NodesController::class,'userShow']);
+Route::get('/node_user', [NodesController::class,'userShow']);
 
 Route::post('/connexion', [UserController::class,'connexion']);
 Route::post('/addUser', [UserController::class,'addUser']);
@@ -52,4 +52,8 @@ Route::get('/deleteRessource/{id}', [RessourcesController::class,'deleteRessourc
 
 
 Route::get('/showComments/{id}', [CommentController::class,'showComment']);
+Route::get('/deleteComment/{id}', [CommentController::class,'deleteComment']);
+Route::get('/updateComment/{id}', [CommentController::class,'updateComment']);
+Route::post('/saveComment/{id}', [CommentController::class,'newComment']);
+
 
