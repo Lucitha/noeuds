@@ -41,17 +41,32 @@ class CommentController extends Controller
                     ->first();
         return view('user.comments',compact('comments','node'));
     }
-    public function updateComment(Request $request, $id){
+    public function editComment($id){
        
-        $update=Comments::where('id',[$id])->first();
-
+        $comm=Comments:: where('id',$id)
+                    ->first();
+    //    $output='';
+    //    $output .='<form method="POST" action="/updateComment/'.$comm->id.'">
+    //                     @csrf
+    //                     <label class="form-label"for=""></label>
+    //                     <input class="form-control" type="text" value="'.$comm->content.'">
+    //                     <label class="form-label" for=""></label>
+    //                     <textarea class="form-control" type="text" >'.$comm->details.'</textarea>
+    //                     <button type="button" type="submit" class="btn btn-primary">Save changes</button>
+    //                 </form>';
+    //    echo json_encode([
+    //     'output'=>$output
+    //    ]);
+    
+    }
+    public function updateComment(Request $request, $id){  
+            $update=Comments::where('id',[$id])->first();
             $update->content= $request->content;
-            // $update->details=$request->details;
+            $update->details=$request->details;
             $update->save();
         return back();
     }
     public function deleteComment($id){
-       
         Comments::where('id',[$id])
         ->delete();
         return back();

@@ -43,17 +43,16 @@ Route::get('/node_user', [NodesController::class,'userShow']);
 Route::post('/connexion', [UserController::class,'connexion']);
 Route::post('/addUser', [UserController::class,'addUser']);
 
-
-Route::post('/addRessources', [RessourcesController::class,'newRessource']);
 Route::get('/ressources', [RessourcesController::class,'showRessources']);
 Route::get('/ressources/{id}', [RessourcesController::class,'editRessources']);
-Route::post('/updateRessources/{id}', [RessourcesController::class,'updateRessources']);
 Route::get('/deleteRessource/{id}', [RessourcesController::class,'deleteRessource']);
-
+Route::post('/addRessources', [RessourcesController::class,'newRessource']);
+Route::post('/updateRessources/{id}', [RessourcesController::class,'updateRessources']);
 
 Route::get('/showComments/{id}', [CommentController::class,'showComment']);
 Route::get('/deleteComment/{id}', [CommentController::class,'deleteComment']);
 Route::get('/updateComment/{id}', [CommentController::class,'updateComment']);
+Route::get('/editComment/{id}', [CommentController::class,'editComment']);
 Route::post('/saveComment/{id}', [CommentController::class,'newComment']);
 
 

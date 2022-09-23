@@ -73,7 +73,8 @@
                                             <span>{{$comment->content}}</span>
                                             {{$comment->details}}
                                             <hr>
-                                            <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="badge_btn_1"><i class="ti-pencil"></i></a>
+                                            <a onclick="editC({{$comment->id}})" data-bs-toggle="modal" data-bs-target="#exampleModal" class="badge_btn_1"><i class="ti-pencil"></i></a>
+                                            {{-- <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="badge_btn_1"><i class="ti-pencil"></i></a> --}}
                                             <a href="/deleteComment/{{$comment->id}}" onclick="return confirm('Supprimer ce commentaire ?');" class="badge_btn_1"><i class="ti-trash"></i></a>
                                         </div>
                                     </div>
@@ -109,47 +110,32 @@
           <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-            <form method="POST" action="/updateComment/{{$node->id}}">
-                @csrf
-                <label class="form-label" for=""></label>
-                <input class="form-label" type="text" value="<?= ?>">
-                <label class="form-label" for=""></label>
-                <input class="form-label" type="text" value="<?= ?>">
-        
-            </form>
+        <div class="modal-body" id="editing">
+           
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary mt-2 mb-2" data-bs-dismiss="modal">Close</button>
+          
         </div>
       </div>
     </div>
   </div>
 
 
-<div class="modal fade" id="editComment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. A sed esse voluptates, minima neque asperiores, fuga, explicabo amet repudiandae odio et architecto nihil quibusdam blanditiis eos similique. Quisquam laboriosam modi eos tempore, dicta odit animi delectus provident consequatur suscipit quae! Accusantium tempore magni ab reprehenderit at reiciendis impedit sequi illo. </p>
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-    </div>
-</div>
-
 <script>
-    function editC(){
-        $('#exampleModal').show('modal')
+    function editC(id)
+    {
+        $.ajax({
+            type: "GET",
+            url: "/editComment/"+id,
+            data: {},
+            success: function (response)
+            {
+                var response = JSON.parse(response);
+                var output = response.output;
+                $('#editing').html(output);
+            }
+        });
     }
 </script>
 @endsection
