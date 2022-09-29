@@ -13,7 +13,7 @@
                         <li class="breadcrumb-item active">Sales</li>
                     </ol>
                 </div>
-                <a href="/" class="white_btn3">New Nodes</a>
+                <a href="/add" class="white_btn3">New Nodes</a>
             </div>
         </div>
     </div>

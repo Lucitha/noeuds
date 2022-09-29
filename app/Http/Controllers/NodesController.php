@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class NodesController extends Controller
 {
     //
+
     public function newNode(Request $request){
 
         if(empty($request->name) && empty($request->type)&& empty($request->description)){

@@ -80,6 +80,14 @@ class UtilisateursController extends Controller
         } elseif (!password_verify($request->password,$user->password)) {
             $notify='Mot de passe incorrect';
         }else{
+            foreach ($user as $key => $value) {
+                session()->put($key,$value);
+                session()->save();
+            }
+            // session()->put('id',$user->id);
+            
+        
+        // dd(session()->get('name'));
             return view('noeuds');
         }
     }

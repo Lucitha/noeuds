@@ -14,8 +14,15 @@ class Connect
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
-    {
-        return $next($request);
+    public function handle(Request $request, Closure $next){ 
+        
+        if (!session()->get('email')) {
+            
+            abort(403, 'Vous n\'êtes pas autoriser à accéder. Connectez-vous !'); 
+
+        }else{
+
+            return $next($request);
+        }
     }
 }

@@ -20,10 +20,10 @@ class CommentController extends Controller
             $notify='Veuillez choisir le type de votre noeud.'; 
 
         }
-        // dd($request);
+        // dd(session()->get('name'));
 
           $new=Comments::create([
-            'user_id'=>1,
+            'user_id'=>$request->session()->get('id'),
             'node_id'=>$id,
             'details'=>$request->details,
             'content'=>$request->content,
