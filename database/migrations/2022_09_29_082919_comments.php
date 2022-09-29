@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Commentaires extends Migration
+class Comments extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,7 @@ class Commentaires extends Migration
         //
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->references('id')->on('utilisateurs');
             $table->foreignId('node_id')->references('id')->on('nodes');
             $table->string('content');
             $table->dateTime('updated_at');

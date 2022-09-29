@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class UtilisateursController extends Controller
 {
     //
+    public function login(){
+        return view('welcome');
+    }
+
+ 
     public function addUser(Request $request){
 
         if(empty($request->name) && empty($request->surname)&& empty($request->email) && empty($request->password)&& empty($request->vpassword)){
@@ -30,17 +35,23 @@ class UserController extends Controller
         }else if($request->password !== $request->vpassword){
             $notify='Mot de passe mal renseigné.';  
         }
-        dd($request);
+        // dd($request);
 
         $pass=password_hash($request->password, PASSWORD_DEFAULT);
 
-        \DB:: table('users')
+        \DB:: table('utilisateurs')
             ->insert(['name'=>$request->name, 
                 'surname'=>$request->surname, 
                 'email'=>$request->email,
-                'password'=>$pass]);
-        return view('welcome');
+                'password'=>$pass,
+                'created_at'=>date('Y-m-d H:i:s'),
+                'updated_at'=>date('Y-m-d H:i:s')
+            ]);
+
+        return $this->login();
+
     }
+
 
     public function connexion(Request $request){
 
@@ -54,17 +65,22 @@ class UserController extends Controller
             $notify='Veuillez insérer le mot de passe.';  
 
         }
-        // dd($request);
-        $user=\DB::table('users')
+        // dd($request->email);
+        // dd($user->password);
+        $user=\DB::table('utilisateurs')
                 ->where ('email',$request->email)
                 ->select('*')
-                ->get();
-                // dd($user);
+                ->first();
+        // dd($user->password);
+
+               
 
         if(!$user){
             $notify='Veuillez vous enregistrer d\'abord';
-        } elseif (password_verify($request->password,$user->password)) {
+        } elseif (!password_verify($request->password,$user->password)) {
             $notify='Mot de passe incorrect';
+        }else{
+            return view('noeuds');
         }
     }
 }

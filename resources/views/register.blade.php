@@ -43,6 +43,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <form method="POST" action="/addUser">
+                                        @csrf
                                         <div class="">
                                             <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name">
                                         </div>

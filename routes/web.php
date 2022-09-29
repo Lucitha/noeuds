@@ -3,7 +3,7 @@
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\NodesController;
 use App\Http\Controllers\RessourcesController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\UtilisateursController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,8 +40,9 @@ Route::get('/deleteNode/{id}', [NodesController::class,'deleteNode']);
 Route::get('/editNode/{id}', [NodesController::class,'editNode']);
 Route::get('/node_user', [NodesController::class,'userShow']);
 
-Route::post('/connexion', [UserController::class,'connexion']);
-Route::post('/addUser', [UserController::class,'addUser']);
+Route::post('/connexion', [UtilisateursController::class,'connexion']);
+Route::post('/addUser', [UtilisateursController::class,'addUser']);
+Route::get('/login', [UtilisateursController::class,'login']);
 
 Route::get('/ressources', [RessourcesController::class,'showRessources']);
 Route::get('/ressources/{id}', [RessourcesController::class,'editRessources']);
