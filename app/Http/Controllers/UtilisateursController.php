@@ -65,7 +65,7 @@ class UtilisateursController extends Controller
         
         $this->validate($request, [
             'email' => "required|email",
-            'password' => "required|min:6|confirmed'",
+            'password' => "required|min:6'",
         ]);
 
         if(empty($request->email) && empty($request->password)){
@@ -101,7 +101,7 @@ class UtilisateursController extends Controller
             
         
         // dd(session()->get('name'));
-            return view('noeuds');
+            // return view('noeuds');
         }
     }
 }

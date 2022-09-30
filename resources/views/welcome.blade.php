@@ -45,10 +45,20 @@
                                     <form method="POST" action="/connexion">
                                         @csrf
                                         <div class="">
-                                            <input type="text" name="email" id="email" class="form-control" placeholder="Enter your email">
+                                            <input type="text" name="email" id="email" class="form-control  @error('email') is-invalid @enderror" placeholder="Enter your email">
+                                            @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="">
-                                            <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                                            <input type="password" name="password" id="password" class="form-control  @error('password') is-invalid @enderror" placeholder="Password">
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <button type="submit" class="btn btn-primary">Save</button>
                                         <div class="text-center">

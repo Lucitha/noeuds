@@ -17,12 +17,12 @@
                     <div class="row mb-3">
                         <div class=" col-md-6">
                             <label class="form-label" for="inputCity">Nom</label>
-                            <input type="text" class="form-control" id="name" name="name">
+                            <input type="text" class="form-control  @error('name') is-invalid @enderror" id="name" name="name">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label" for="inputState">Type</label>
-                            <select id="type" name="type" class="form-control">
-                                <option hidden desable>Choose...</option>
+                            <select id="type" name="type" class="form-control @error('type') is-invalid @enderror">
+                                <option hidden desable value="">Choose...</option>
                                 <option value='1'>A</option>
                                 <option value='2'>B</option>
                                 <option value='5'>C</option>
@@ -32,7 +32,7 @@
                     </div>
                     <div class="col-12">
                         <label class="form-label" for="description" >Description</label>
-                        <textarea class="form-control" name="description" id="description"></textarea>
+                        <textarea class="form-control  @error('description') is-invalid @enderror" name="description" id="description"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary mb-3 mt-3">Save</button>
                 </form>

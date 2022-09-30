@@ -9,8 +9,13 @@ class RessourcesController extends Controller
 {
     //
     public function newRessource(Request $request){
+        $this->validate($request, [
+            'name' => "required|string|min:2",
+            'type' => "required|string|min:1",
+            'information' => "required|string|min:2",
+        ]);
 
-        if(empty($request->name) && empty($request->type)&& empty($request->description)){
+        if(empty($request->name) && empty($request->type) && empty($request->information)){
             $notify='Veuillez remplir tout les champs.';
  
         }else if(empty($request->name)){
@@ -19,7 +24,7 @@ class RessourcesController extends Controller
         }else if($request->type){
             $notify='Veuillez choisir le type de votre noeud.'; 
 
-        }else if($request->description){
+        }else if($request->information){
             $notify='La description sur ce noeud sont necessaire.';  
 
         }
@@ -52,10 +57,8 @@ class RessourcesController extends Controller
         $infos->type=$request->type;
         $infos->informations=$request->information;
         $infos->save();
-        $info=Ressources::where('id',[$id])->first();
-        // dd($info);
-        $ressources=Ressources::all();
-        return view('ressources',compact('info','ressources'));       
+
+        return redirect('/ressources');     
     }
     public function deleteRessource($id){
        

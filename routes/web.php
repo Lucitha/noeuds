@@ -28,7 +28,7 @@ Route::get('/register', function () {
 Route::post('/connexion', [UtilisateursController::class,'connexion']);
 Route::post('/addUser', [UtilisateursController::class,'addUser']);
 
-Route::middleware([Connect::class])->group(function(){
+// Route::middleware([Connect::class])->group(function(){
 
     Route::get('/add', function () {
         return view('noeuds');
@@ -38,9 +38,6 @@ Route::middleware([Connect::class])->group(function(){
     Route::get('/nodes', [NodesController::class,'showNode']);
     Route::get('/deleteNode/{id}', [NodesController::class,'deleteNode']);
     Route::get('/editNode/{id}', [NodesController::class,'editNode']);
-    Route::get('/node_user', [NodesController::class,'userShow']);
-
-
 
     Route::get('/ressources', [RessourcesController::class,'showRessources']);
     Route::get('/ressources/{id}', [RessourcesController::class,'editRessources']);
@@ -54,4 +51,4 @@ Route::middleware([Connect::class])->group(function(){
     Route::get('/editComment/{id}', [CommentController::class,'editComment']);
     Route::post('/saveComment/{id}', [CommentController::class,'newComment']);
 
-});
+// });

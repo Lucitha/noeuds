@@ -10,20 +10,25 @@ class NodesController extends Controller
     //
 
     public function newNode(Request $request){
+        $this->validate($request, [
+            'name' => "required|string|min:2",
+            'type' => "required|string|min:1",
+            'description' => "required|string|min:2",
+        ]);
 
-        if(empty($request->name) && empty($request->type)&& empty($request->description)){
-            $notify='Veuillez remplir tout les champs.';
+        // if(empty($request->name) && empty($request->type)&& empty($request->description)){
+        //     $notify='Veuillez remplir tout les champs.';
  
-        }else if(empty($request->name)){
-             $notify= 'Veuillez saisir le nom de votre noeud.';
+        // }else if(empty($request->name)){
+        //      $notify= 'Veuillez saisir le nom de votre noeud.';
 
-        }else if($request->type){
-            $notify='Veuillez choisir le type de votre noeud.'; 
+        // }else if($request->type){
+        //     $notify='Veuillez choisir le type de votre noeud.'; 
 
-        }else if($request->description){
-            $notify='La description sur ce noeud sont necessaire.';  
+        // }else if($request->description){
+        //     $notify='La description sur ce noeud sont necessaire.';  
 
-        }
+        // }
         // dd($request);
 
           $new=Nodes::create([
@@ -54,13 +59,14 @@ class NodesController extends Controller
         $nodes=Nodes::all();
         return view('list',compact('nodes'));
     }
-    public function userShow(){
-       
-        $nodes=Nodes::all();
-        return view('user.dashboard',compact('nodes'));
-    }
+ 
    
     public function updateNode(Request $request, $id){
+        $this->validate($request, [
+            'name' => "required|string|min:2",
+            'type' => "required|string|min:1",
+            'description' => "required|string|min:2",
+        ]);
         // if(empty($request->name) && empty($request->type)&& empty($request->description)){
         //     $notify='Veuillez remplir tout les champs.';
  
@@ -82,8 +88,10 @@ class NodesController extends Controller
         $noeud->description=$request->description;
         $noeud->save();
         
-        $nodes=Nodes::all();
-        return view('list',compact('nodes'));
+        // $nodes=Nodes::all();
+        // return view('list',compact('nodes'));
+        return redirect('/nodes'); 
+        
     }
 
 }

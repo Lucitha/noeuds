@@ -35,8 +35,8 @@
                             <td class="f_s_14 f_w_400 text-end"><a href="#" class="badge_btn_1">{{$node->type}}</a></td>
                             <td class="f_s_14 f_w_400 color_text_3">{{$node->description}}</td>
                             <td class="f_s_14 f_w_400 text-end">
-                                <a href="/editNode/{{$node->id}}" onclick="return confirm('Supprimer ce noeud ?');" class="badge_btn_1" ><i class="ti-pencil"></i></a>
-                                <a href="/deleteNode/{{$node->id}}" class="badge_btn_1"><i class="ti-trash"></i></a> 
+                                <a href="/editNode/{{$node->id}}"  class="badge_btn_1" ><i class="ti-pencil"></i></a>
+                                <a href="/deleteNode/{{$node->id}}" onclick="return confirm('Supprimer ce noeud ?');" class="badge_btn_1"><i class="ti-trash"></i></a> 
                                 <a href="/showComments/{{$node->id}}" class="badge_btn_1"><i class="ti-eye"></i></a> 
                             </td>
                         </tr>
