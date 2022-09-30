@@ -45,7 +45,7 @@
                                     <form method="POST" action="/connexion">
                                         @csrf
                                         <div class="">
-                                            <input type="text" name="email" id="email" class="form-control  @error('email') is-invalid @enderror" placeholder="Enter your email">
+                                            <input type="text" name="email" id="email" class="form-control  @error('email') is-invalid @enderror" value="{{ old('email')}}" placeholder="Enter your email">
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

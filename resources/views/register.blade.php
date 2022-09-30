@@ -45,7 +45,7 @@
                                     <form method="POST" action="/addUser">
                                         @csrf
                                         <div class="">
-                                            <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="Enter your name">
+                                            <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror"  value="{{ old('name')}}" placeholder="Enter your name">
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -53,7 +53,7 @@
                                             @enderror
                                         </div>
                                         <div class="">
-                                            <input type="text" name="surname" id="surname" class="form-control @error('surname') is-invalid @enderror" placeholder="Enter your surname">
+                                            <input type="text" name="surname" id="surname" class="form-control @error('surname') is-invalid @enderror" value="{{ old('surname')}}"placeholder="Enter your surname">
                                             @error('surname')
                                                 <span for=surname class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -61,7 +61,7 @@
                                             @enderror
                                         </div>
                                         <div class="">
-                                            <input type="text" name="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Enter your email">
+                                            <input type="text" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email')}}" placeholder="Enter your email">
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

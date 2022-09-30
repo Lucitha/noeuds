@@ -52,6 +52,11 @@ class RessourcesController extends Controller
         return view('ressources',compact('info','ressources'));       
     }
     public function updateRessources(Request $request,$id){
+        $this->validate($request, [
+            'name' => "required|string|min:2",
+            'type' => "required|string|min:1",
+            'information' => "required|string|min:2",
+        ]);
         $infos=Ressources::where('id',[$id])->first();
         $infos->name=$request->name;
         $infos->type=$request->type;

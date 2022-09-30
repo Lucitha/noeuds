@@ -28,7 +28,7 @@ Route::get('/register', function () {
 Route::post('/connexion', [UtilisateursController::class,'connexion']);
 Route::post('/addUser', [UtilisateursController::class,'addUser']);
 
-// Route::middleware([Connect::class])->group(function(){
+Route::middleware([Connect::class])->group(function(){
 
     Route::get('/add', function () {
         return view('noeuds');
@@ -51,4 +51,4 @@ Route::post('/addUser', [UtilisateursController::class,'addUser']);
     Route::get('/editComment/{id}', [CommentController::class,'editComment']);
     Route::post('/saveComment/{id}', [CommentController::class,'newComment']);
 
-// });
+});

@@ -18,8 +18,8 @@ class UtilisateursController extends Controller
             'name' => "required|string|min:2",
             'email' => "required|email",
             'surname' => "required|string|min:2",
-            'password' => "required|min:6|confirmed'",
-            'vpassword' => "required|min:6|"
+            'password' => "required|min:6|confirmed",
+            'vpassword' => "required|min:6"
         ]);
 
         // if(empty($request->name) && empty($request->surname)&& empty($request->email) && empty($request->password)&& empty($request->vpassword)){
@@ -68,16 +68,16 @@ class UtilisateursController extends Controller
             'password' => "required|min:6'",
         ]);
 
-        if(empty($request->email) && empty($request->password)){
-            $notify='Veuillez remplir tout les champs.';
+        // if(empty($request->email) && empty($request->password)){
+        //     $notify='Veuillez remplir tout les champs.';
  
-        }else if(empty($request->email)){
-             $notify= 'Veuillez renseigner votre email.';
+        // }else if(empty($request->email)){
+        //      $notify= 'Veuillez renseigner votre email.';
 
-        }else if($request->password){
-            $notify='Veuillez insérer le mot de passe.';  
+        // }else if($request->password){
+        //     $notify='Veuillez insérer le mot de passe.';  
 
-        }
+        // }
         // dd($request->email);
         // dd($user->password);
         $user=\DB::table('utilisateurs')
@@ -89,9 +89,9 @@ class UtilisateursController extends Controller
                
 
         if(!$user){
-            $notify='Veuillez vous enregistrer d\'abord';
+            return redirect('/register');
         } elseif (!password_verify($request->password,$user->password)) {
-            $notify='Mot de passe incorrect';
+            return redirect('/');
         }else{
             foreach ($user as $key => $value) {
                 session()->put($key,$value);
@@ -101,7 +101,7 @@ class UtilisateursController extends Controller
             
         
         // dd(session()->get('name'));
-            // return view('noeuds');
+            return view('noeuds');
         }
     }
 }
