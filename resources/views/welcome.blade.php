@@ -52,7 +52,7 @@
                                         </div>
                                         <button type="submit" class="btn btn-primary">Save</button>
                                         <div class="text-center">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#forgot_password" data-bs-dismiss="modal" class="pass_forget_btn">Forget Password?</a>
+                                            <a href="/register" data-bs-toggle="modal" data-bs-target="#forgot_password" data-bs-dismiss="modal" class="pass_forget_btn">Register</a>
                                         </div>
                                     </form>
                                 </div>

@@ -14,27 +14,35 @@ class UtilisateursController extends Controller
  
     public function addUser(Request $request){
 
-        if(empty($request->name) && empty($request->surname)&& empty($request->email) && empty($request->password)&& empty($request->vpassword)){
-            $notify='Veuillez remplir tout les champs.';
+        $this->validate($request, [
+            'name' => "required|string|min:2",
+            'email' => "required|email",
+            'surname' => "required|string|min:2",
+            'password' => "required|min:6|confirmed'",
+            'vpassword' => "required|min:6|"
+        ]);
+
+        // if(empty($request->name) && empty($request->surname)&& empty($request->email) && empty($request->password)&& empty($request->vpassword)){
+        //     $notify='Veuillez remplir tout les champs.';
  
-        }else if(empty($request->email)){
-             $notify= 'Veuillez renseigner votre email.';
+        // }else if(empty($request->email)){
+        //      $notify= 'Veuillez renseigner votre email.';
 
-        }else if($request->password){
-            $notify='Veuillez insérer le mot de passe.';  
+        // }else if($request->password){
+        //     $notify='Veuillez insérer le mot de passe.';  
 
-        }else if($request->vpassword){
-            $notify='Veuillez confirmer le mot de passe.';  
+        // }else if($request->vpassword){
+        //     $notify='Veuillez confirmer le mot de passe.';  
 
-        }else if($request->surname){
-            $notify='Veuillez renseigner le prénom.';  
+        // }else if($request->surname){
+        //     $notify='Veuillez renseigner le prénom.';  
 
-        }else if($request->name){
-            $notify='Veuillez renseigner le nom.';  
+        // }else if($request->name){
+        //     $notify='Veuillez renseigner le nom.';  
 
-        }else if($request->password !== $request->vpassword){
-            $notify='Mot de passe mal renseigné.';  
-        }
+        // }else if($request->password !== $request->vpassword){
+        //     $notify='Mot de passe mal renseigné.';  
+        // }
         // dd($request);
 
         $pass=password_hash($request->password, PASSWORD_DEFAULT);
@@ -54,6 +62,11 @@ class UtilisateursController extends Controller
 
 
     public function connexion(Request $request){
+        
+        $this->validate($request, [
+            'email' => "required|email",
+            'password' => "required|min:6|confirmed'",
+        ]);
 
         if(empty($request->email) && empty($request->password)){
             $notify='Veuillez remplir tout les champs.';

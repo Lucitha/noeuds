@@ -45,23 +45,43 @@
                                     <form method="POST" action="/addUser">
                                         @csrf
                                         <div class="">
-                                            <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name">
+                                            <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="Enter your name">
+                                            @error('name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="">
-                                            <input type="text" name="surname" id="surname" class="form-control" placeholder="Enter your surname">
+                                            <input type="text" name="surname" id="surname" class="form-control @error('surname') is-invalid @enderror" placeholder="Enter your surname">
+                                            @error('surname')
+                                                <span for=surname class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="">
-                                            <input type="text" name="email" id="email" class="form-control" placeholder="Enter your email">
+                                            <input type="text" name="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Enter your email">
+                                            @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="">
-                                            <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                                            <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password">
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="">
                                             <input type="password" name="vpassword" id="vpassword" class="form-control" placeholder="Confirm Password">
                                         </div>
                                         <button type="submit" class="btn btn-primary">Save</button>
                                         <div class="text-center">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#forgot_password" data-bs-dismiss="modal" class="pass_forget_btn">Forget Password?</a>
+                                            <a href="/" data-bs-toggle="modal" data-bs-target="#forgot_password" data-bs-dismiss="modal" class="pass_forget_btn">Login</a>
                                         </div>
                                     </form>
                                 </div>
