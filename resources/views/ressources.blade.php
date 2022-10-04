@@ -23,12 +23,12 @@
                             <label class="form-label" for="inputState">Type</label>
                             <select id="type" name="type" class="form-control @error('type') is-invalid @enderror">
                                 <option hidden desable value="">Choose...</option>
-                                <option value='1'>A</option>
-                                <option value='2'>B</option>
-                                <option value='5'>C</option>
-                                <option value='4'>D</option>
+                                <option {{($info !='' ) && ($info->type==1)? 'selected': ''}} value='1'>A</option>
+                                <option {{($info !='' ) && ($info->type==2)? 'selected': ''}} value='2'>B</option>
+                                <option {{($info !='' ) && ($info->type==5)? 'selected': ''}} value='5'>C</option>
+                                <option {{($info !='' ) && ($info->type==4)? 'selected': ''}} value='4'>D</option>
                             </select>
-                        </div>  
+                        </div>
                     </div>
                     <div class="col-12">
                         <label class="form-label"  for="information" >Information</label>
@@ -59,15 +59,15 @@
                             <td class="f_s_14 f_w_400 color_text_3">{{$ressource->informations}}</td>
                             <td class="f_s_14 f_w_400 text-end">
                                 <a href="/ressources/{{$ressource->id}}" class="badge_btn_1"><i class="ti-pencil"></i></a>
-                                <a href="/deleteRessource/{{$ressource->id}}" onclick="return confirm('Supprimer cette ressource ?');   S" class="badge_btn_1"><i class="ti-trash"></i></a> 
+                                <a href="/deleteRessource/{{$ressource->id}}" onclick="return confirm('Supprimer cette ressource ?');   S" class="badge_btn_1"><i class="ti-trash"></i></a>
                             </td>
                         </tr>
-                    @endforeach 
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-    
+
 </div>
 
 

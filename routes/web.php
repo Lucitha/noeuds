@@ -30,6 +30,8 @@ Route::post('/addUser', [UtilisateursController::class,'addUser']);
 
 Route::middleware([Connect::class])->group(function(){
 
+    Route::get('/deconnexion', [UtilisateursController::class,'deconnexion']);
+
     Route::get('/add', function () {
         return view('noeuds');
     });
@@ -47,7 +49,7 @@ Route::middleware([Connect::class])->group(function(){
 
     Route::get('/showComments/{id}', [CommentController::class,'showComment']);
     Route::get('/deleteComment/{id}', [CommentController::class,'deleteComment']);
-    Route::get('/updateComment/{id}', [CommentController::class,'updateComment']);
+    Route::post('/updateComment/{id}', [CommentController::class,'updateComment']);
     Route::get('/editComment/{id}', [CommentController::class,'editComment']);
     Route::post('/saveComment/{id}', [CommentController::class,'newComment']);
 

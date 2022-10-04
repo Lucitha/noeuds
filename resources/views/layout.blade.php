@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="zxx">
-
-<!-- Mirrored from demo.dashboardpack.com/sales-html/index_3.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 14 Sep 2022 10:47:32 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
 
 <meta charset="utf-8" />
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <title>Sales</title>
-<link rel="icon" href="{{asset('img/logo.png" type="image/png')}}">
+<link rel="icon" href="{{asset('img/logo.png')}}" type="image/png">
 
 <link rel="stylesheet" href="{{asset('css/bootstrap1.min.css')}}" />
 
@@ -42,6 +40,11 @@
 
 <link rel="stylesheet" href="{{asset('css/style1.css')}}" />
 <link rel="stylesheet" href="{{asset('css/colors/default.css" id="colorSkinCSS')}}">
+<style>
+    .messages_box_area{
+        display: contents !important;
+    }
+</style>
 </head>
 <body class="crm_body_bg">
 
@@ -63,21 +66,21 @@
                 </a>
                 <ul>
                     <li><a class="active" href="/nodes">Liste des Noeuds</a></li>
-                    
+
                 </ul>
             </li>
             <li class="">
                 <a class="has-arrow" href="#" aria-expanded="false">
                     <div class="icon_menu">
-                        <img src="img/menu-icon/2.svg" alt="">
+                        <img src="{{asset('img/menu-icon/2.svg')}}" alt="">
                     </div>
                     <span>Ressources</span>
                 </a>
                 <ul>
                     <li><a href="/ressources">Liste des ressouces</a></li>
-                    
+
                 </ul>
-            
+
         </ul>
     </nav>
 
@@ -115,7 +118,7 @@
 
     <div class="single_notify d-flex align-items-center">
     <div class="notify_thumb">
-    <a href="#"><img src="img/staf/2.png" alt=""></a>
+    <a href="#"><img src="{{asset('img/staf/2.png')}}" alt=""></a>
     </div>
     <div class="notify_content">
     <a href="#"><h5>Cool Marketing </h5></a>
@@ -125,7 +128,7 @@
 
     <div class="single_notify d-flex align-items-center">
     <div class="notify_thumb">
-    <a href="#"><img src="img/staf/4.png" alt=""></a>
+    <a href="#"><img src="{{asset('img/staf/4.png')}}" alt=""></a>
     </div>
     <div class="notify_content">
     <a href="#"><h5>Awesome packages</h5></a>
@@ -135,7 +138,7 @@
 
     <div class="single_notify d-flex align-items-center">
     <div class="notify_thumb">
-    <a href="#"><img src="img/staf/3.png" alt=""></a>
+    <a href="#"><img src="{{asset('img/staf/3.png')}}" alt=""></a>
     </div>
     <div class="notify_content">
     <a href="#"><h5>what a packages</h5></a>
@@ -145,7 +148,7 @@
 
     <div class="single_notify d-flex align-items-center">
     <div class="notify_thumb">
-    <a href="#"><img src="img/staf/2.png" alt=""></a>
+    <a href="#"><img src="{{asset('/staf/2.png')}}" alt=""></a>
     </div>
     <div class="notify_content">
     <a href="#"><h5>Cool Marketing </h5></a>
@@ -155,7 +158,7 @@
 
     <div class="single_notify d-flex align-items-center">
     <div class="notify_thumb">
-    <a href="#"><img src="img/staf/4.png" alt=""></a>
+    <a href="#"><img src="{{asset('img/staf/4.png')}}" alt=""></a>
     </div>
     <div class="notify_content">
     <a href="#"><h5>Awesome packages</h5></a>
@@ -165,7 +168,7 @@
 
     <div class="single_notify d-flex align-items-center">
     <div class="notify_thumb">
-    <a href="#"><img src="img/staf/3.png" alt=""></a>
+    <a href="#"><img src="{{asset('img/staf/3.png')}}" alt=""></a>
     </div>
     <div class="notify_content">
     <a href="#"><h5>what a packages</h5></a>
@@ -182,11 +185,11 @@
 
     </li>
     <li>
-    <a class="CHATBOX_open nav-link-notify" href="#"> <img src="img/icon/msg.svg" alt=""> </a>
+    <a class="CHATBOX_open nav-link-notify" href="#"> <img src="{{asset('img/icon/msg.svg')}}" alt=""> </a>
     </li>
     </div>
     <div class="profile_info">
-    <img src="img/client_img.png" alt="#">
+    <img src="{{asset('img/client_img.png')}}" alt="#">
     <div class="profile_info_iner">
     <div class="profile_author_name">
     <p>Neurologist </p>
@@ -195,7 +198,7 @@
     <div class="profile_info_details">
     <a href="#">My Profile </a>
     <a href="#">Settings</a>
-    <a href="#">Log Out </a>
+    <a href="/deconnexion">Log Out </a>
     </div>
     </div>
     </div>

@@ -23,12 +23,12 @@
                             <label class="form-label" for="inputState">Type</label>
                             <select id="type" name="type" class="form-control @error('type') is-invalid @enderror">
                                 <option hidden desable value="">Choose...</option>
-                                <option value='1'>A</option>
-                                <option value='2'>B</option>
-                                <option value='5'>C</option>
-                                <option value='4'>D</option>
+                                <option {{ ($noeud->type==1)? 'selected': ''}} value='1'>A</option>
+                                <option {{ ($noeud->type==2)? 'selected': ''}} value='2'>B</option>
+                                <option {{ ($noeud->type==5)? 'selected': ''}} value='5'>C</option>
+                                <option {{ ($noeud->type==4)? 'selected': ''}} value='4'>D</option>
                             </select>
-                        </div>  
+                        </div>
                     </div>
                     <div class="col-12">
                         <label >description</label>

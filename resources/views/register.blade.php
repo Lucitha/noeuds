@@ -22,6 +22,12 @@
 
 <link rel="stylesheet" href="css/style1.css" />
 <link rel="stylesheet" href="css/colors/default.css" id="colorSkinCSS">
+<style>
+    .main_content {
+        padding-left: 0px !important;
+
+    }
+</style>
 </head>
 <body class="crm_body_bg">
 
@@ -126,8 +132,7 @@
 </body>
 
 <!-- Mirrored from demo.dashboardpack.com/sales-html/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 14 Sep 2022 10:48:04 GMT -->
-</html>                                     
-                            
-       
+</html>
 
-       
+
+
